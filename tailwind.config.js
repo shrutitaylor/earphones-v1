@@ -4,17 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        button: '#FEEF52',
-        'button-border': '#000000',
         orange : '#FF6000',
         yellow:"#e3f542",
         blackMe:"#171717"
       },
       fontFamily: {
-        outfit: ['Outfit', 'sans-serif'],
-        praise: ['Praise', 'cursive'],
-        hacked: ['Hacked', "sans-serif"],
-        mangoGro: ['MangoGrotesque', "sans-serif"],
+        pressStart: ['pressStart', 'sans-serif'],
+        aoMono: ['aoMono', 'sans-serif'],
         spaceGro: ['Space', "sans-serif"],
         
       },

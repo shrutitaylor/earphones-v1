@@ -5,6 +5,10 @@ import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import EarphoneModel from "../components/3Dearphones";
+import EarphoneColorChanger from "../components/earphoneColorChange";
+import Footer from "../components/landingFooter";
+import LandingFooter from "../components/landingFooter";
+import Navbar from "../components/navbar";
 
 gsap.registerPlugin(ScrollTrigger) ;
 export default function Home() {
@@ -21,7 +25,7 @@ export default function Home() {
                 end: "bottom bottom",
                 scrub:1,
                 onUpdate:(self) => {
-                    setProgress(self)
+                    setProgress(self.progress)
                 }
 
             }
@@ -42,7 +46,9 @@ export default function Home() {
     },[])
     return (
         <>
+         
          <main ref={mainRef} className=" md:overflow-x-hidden text-black">
+         <Navbar/>
             <Suspense
                 fallback={
                 <div className="fixed inset-0 grid place-items-center bg-black ">
@@ -51,10 +57,10 @@ export default function Home() {
                 }
             >
         <section className="relative grid place-items-center h-[100vh]">
-          <p className=" text-center absolute top-[5%] mx-4 w-fit text-8xl font-bold">
-           BOSS EARPHONES
+          <p className="font-pressStart text-center absolute top-[6%] mx-4 w-fit text-[9vw] leading-[9vw] font-bold">
+           BOSE<br></br> HEADPHONES
           </p>
-        
+          <LandingFooter />
 
           <div ref={sceneRef} className="h-[100vh] w-[100vw]">
             <Canvas >
@@ -88,8 +94,11 @@ export default function Home() {
             clearly even under the harshest sun.
           </p>
         </section>
+      
       </Suspense>
     </main>
+    <EarphoneColorChanger />
+    
         </>
     );
 }
