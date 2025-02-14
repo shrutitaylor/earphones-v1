@@ -22,12 +22,12 @@ function App() {
     <>
       <div className='bg-[#FFFDF9]'>
         <div className="bg-white flex justify-center">
-          <BrowserRouter>
+          <BrowserRouter basename="/earphones-v1">
             {isLoading ? (
               <Loader />
             ) : (
               <Routes>
-                <Route path="/" element={<Home loaded={loaded} />} />
+                 <Route path="/earphones-v1"  element={<Home loaded={loaded} />} />
                 <Route path="/load" element={<Loader />} />
               </Routes>
             )}

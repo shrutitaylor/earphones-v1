@@ -1,7 +1,7 @@
 {
   "name": "earphones-v1",
   "version": "0.1.0",
-  "homepage": "https://shrutitaylor.github.io/earphones-v1/",
+  "homepage": "https://shrutitaylor.github.io/earphones-v1",
   "private": false,
   "dependencies": {
     "@motionone/utils": "^10.18.0",
