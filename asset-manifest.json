@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/earphones-v1/static/css/main.55127921.css",
-    "main.js": "/earphones-v1/static/js/main.0815e908.js",
+    "main.js": "/earphones-v1/static/js/main.1b7b5763.js",
     "static/js/453.68333b5e.chunk.js": "/earphones-v1/static/js/453.68333b5e.chunk.js",
     "static/media/PressStart2P-Regular.ttf": "/earphones-v1/static/media/PressStart2P-Regular.21503c6a5385ab41dde9.ttf",
     "static/media/Outfit.ttf": "/earphones-v1/static/media/Outfit.00c2ed1a3bf798b0da27.ttf",
     "static/media/AOMono-Bold.otf": "/earphones-v1/static/media/AOMono-Bold.ac51e8d8f3456b427a5e.otf",
     "index.html": "/earphones-v1/index.html",
     "main.55127921.css.map": "/earphones-v1/static/css/main.55127921.css.map",
-    "main.0815e908.js.map": "/earphones-v1/static/js/main.0815e908.js.map",
+    "main.1b7b5763.js.map": "/earphones-v1/static/js/main.1b7b5763.js.map",
     "453.68333b5e.chunk.js.map": "/earphones-v1/static/js/453.68333b5e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.55127921.css",
-    "static/js/main.0815e908.js"
+    "static/js/main.1b7b5763.js"
   ]
 }
