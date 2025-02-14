@@ -2,13 +2,8 @@ import React, { useMemo } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Earphone({ color, ...props }) {
-  const { nodes, materials } = useGLTF('/bose_qc35_wireless_headphone_high_poly.glb')
-  // Create a new material with the selected color
-  const coloredMaterial = useMemo(() => {
-    const material = materials.material.clone();
-    material.color.set(color);
-    return material;
-  }, [color, materials.material]);
+  const { nodes, materials } = useGLTF('earphones-v1/bose_qc35_wireless_headphone_high_poly.glb')
+  
   return (
     <group scale={35} {...props} dispose={null}>
       <group scale={0.01}>

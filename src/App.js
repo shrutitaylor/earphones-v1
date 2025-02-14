@@ -8,7 +8,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [loaded, setLoaded] = useState(false);
 
-  // Simulate loading completion after 3 seconds
+  // Simulate loading completion after 2 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -27,7 +27,8 @@ function App() {
               <Loader />
             ) : (
               <Routes>
-                 <Route path="/earphones-v1"  element={<Home loaded={loaded} />} />
+                {/* Use a single route for the home page */}
+                <Route path="/" element={<Home loaded={loaded} />} />
                 <Route path="/load" element={<Loader />} />
               </Routes>
             )}
