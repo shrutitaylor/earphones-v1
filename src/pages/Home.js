@@ -11,17 +11,19 @@ import RippleEffect from "../components/rippleEffect";
 import Section1 from "../components/section1";
 import Section2 from "../components/section2";
 import Features from "../components/features";
-import { Loader } from "@react-three/drei";
+import Loader from "../components/loader";
 import Pattern from "../components/backPattern";
 import Faq from "./Review";
 import ParallaxText from "../components/scrollText";
+import Footer from "../components/footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function Home({loaded}) {
     const mainRef = useRef(null);
     const sceneRef = useRef(null);
     const [progress, setProgress] = useState(0);
+    
 
     useEffect(() => {
         // Animation for the 3D scene
@@ -55,15 +57,16 @@ export default function Home() {
 
     return (
         <>
-        <div className="flex flex-col">
+        {/* <Suspense fallback={  <Loader isLoading />  }> */}
+       
+        <div 
+        className={` transition-all duration-1000 ease-in-out ${
+          loaded ? "opacity-1 flex flex-col h-full" : "opacity-0 h-0"
+        }`}>
             <Pattern />
             <main ref={mainRef} className="overflow-hidden text-black">
                 <Navbar />
-                <Suspense fallback={
-                    <div className="bg-white flex justify-center">
-                        <Loader />
-                    </div>
-                }>
+                
                     {/* Section 1 */}
                     <motion.section
                         
@@ -114,12 +117,14 @@ export default function Home() {
                             <Features />
                         </p>
                     </motion.section>
-                </Suspense>
+               
             </main>
             <div>
               <Faq />
             </div>
+            <Footer />
             </div>
+          
             {/* <EarphoneColorChanger /> */}
         </>
     );

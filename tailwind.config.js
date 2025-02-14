@@ -55,10 +55,17 @@ module.exports = {
         'landingImg': "url('./images/landing.png')",
         'paperBg': "url('./images/paper.jpg')",
         'cryptoCoins': "url('./images/crypto-coins.jpg')",
+        "radial-gradient": "radial-gradient(farthest-corner at 70% 30%, #ffffff 4%, #61bdda 12% 24%, #4791b2 50% 65%, #61bdda 75%)",
+        "linear-gradient-handle": "linear-gradient(to right, #1f1f1f, #161616, #1f1f1f 45% 55%, #161616, #1f1f1f)",
+        "linear-gradient-base": "linear-gradient(to bottom, #444444, #222222)",
+        "linear-gradient-active": "linear-gradient(to bottom, #00cfb6, #00a5bf)",
       },
       boxShadow: {
         hard: '4px 4px 0px 0px black',
         hardbutton: '3px 3px 0px 0px black',
+        "inner-knob": "inset 0 0 8px 2px rgba(255, 255, 255, 0.4)",
+        "inner-bar": "inset 0 1em 0.25em rgba(0, 0, 0, 0.4)",
+        "outer-base": "0 -0.25em 0.5em #fff, 0 0.25em 0.5em #d7d7d7",
       },
       dropShadow: {
         glow: [

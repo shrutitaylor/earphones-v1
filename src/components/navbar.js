@@ -1,5 +1,6 @@
 import React from "react";
 import LogoDesign from "./logodesign";
+import Button from "./button";
 const Navbar = () => {
     return (
         <>
@@ -13,8 +14,9 @@ const Navbar = () => {
             </a>
             
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <button className="font-aoMono text-[18px] h-[20px] xl:text-[1.2vw] xl:h-[2.5vw] bg-black text-white p-3.5 leading-[1vw] w-[100px] rounded-lg">
-                            MENU
+            <button className="font-aoMono text-[18px] h-[20px] xl:text-[1.2vw] xl:h-[2.5vw]text-white leading-[1vw] w-[100px] rounded-lg">
+                      {/*        */}
+           <Button />
             </button>
             </div>
         </div>

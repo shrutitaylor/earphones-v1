@@ -1,7 +1,8 @@
 {
   "name": "earphones-v1",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://shrutitaylor.github.io/earphones-v1/",
+  "private": false,
   "dependencies": {
     "@motionone/utils": "^10.18.0",
     "@react-spring/three": "^9.7.5",
@@ -13,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aframe": "^1.6.0",
     "aframe-react": "^4.4.0",
+    "axios": "^1.7.9",
     "framer-motion": "^12.4.2",
     "gsap": "^3.12.7",
     "motion": "^12.4.2",
@@ -30,7 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +56,7 @@
   },
   "devDependencies": {
     "ajv": "^7.2.4",
+    "gh-pages": "^6.3.0",
     "react-router-dom": "^7.1.5"
   }
 }

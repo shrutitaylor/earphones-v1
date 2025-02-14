@@ -1,125 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
 
 const Loader = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading completion after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Adjust the time as needed
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
+
   return (
-    <StyledWrapper>
-      <div className="loader">
-        <div className="dot" />
-        <div className="dot" />
-        <div className="dot" />
-      </div>
-    </StyledWrapper>
+    <div
+      className={`h-screen bg-black w-full text-white flex items-center justify-center transition-all duration-1000 ease-in-out ${
+        !isLoading ? "opacity-0 h-0 overflow-hidden" : ""
+      }`}
+    >
+      <div className="text-4xl font-pressStart">xxxx Loading xxxx</div>
+    </div>
   );
-}
-
-const StyledWrapper = styled.div`
-  /* The loader container */
-.loader {
-  width: 200px;
-  height: 200px;
-  perspective: 200px;
-}
-
-
-/* The dot */
-.dot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  margin-top: -60px;
-  margin-left: -60px;
-  border-radius: 100px;
-  border: 40px outset #1e3f57;
-  transform-origin: 50% 50%;
-  transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  background-color: transparent;
-  animation: dot1 1000ms cubic-bezier(.49,.06,.43,.85) infinite;
-}
-
-.dot:nth-child(2) {
-  width: 140px;
-  height: 140px;
-  margin-top: -70px;
-  margin-left: -70px;
-  border-width: 30px;
-  border-color: #447891;
-  animation-name: dot2;
-  animation-delay: 75ms;
-  box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-}
-
-.dot:nth-child(3) {
-  width: 160px;
-  height: 160px;
-  margin-top: -80px;
-  margin-left: -80px;
-  border-width: 20px;
-  border-color: #6bb2cd;
-  animation-name: dot3;
-  animation-delay: 150ms;
-  box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-}
-
-@keyframes dot1 {
-  0% {
-    border-color: #1e3f57;
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-
-  50% {
-    border-color: #1e3057;
-    transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
-  }
-
-  100% {
-    border-color: #1e2c57;
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-}
-
-@keyframes dot2 {
-  0% {
-    border-color: #447891;
-    box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.2);
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-
-  50% {
-    border-color: #445b91;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.8);
-    transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
-  }
-
-  100% {
-    border-color: #447891;
-    box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.2);
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-}
-
-@keyframes dot3 {
-  0% {
-    border-color: #6bb2cd;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-
-  50% {
-    border-color: #6b94cd;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.8);
-    transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
-  }
-
-  100% {
-    border-color: #6bb2cd;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-}`;
+};
 
 export default Loader;

@@ -1,4 +1,5 @@
 import React from "react";
+import Switch from "./switch";
 const LandingFooter = ({sectionref}) => {
     return (
         <>
@@ -9,9 +10,7 @@ const LandingFooter = ({sectionref}) => {
         <section className="md:w-[15vw]">
         
         </section>
-        <button className="font-aoMono text-[18px] h-[20px] xl:text-[1.2vw] xl:h-[2.5vw]  bg-black text-white p-3.5 leading-[1vw] w-[100px] rounded-lg">
-                            SHOP
-            </button>
+        <Switch />
         
         </footer>
         </>
