@@ -18,7 +18,7 @@ const Switch = () => {
   return (
     <StyledWrapper>
       {/* Audio Element */}
-      <audio ref={audioRef} src="/assets/music/notlikeus.mp3" loop />
+      <audio ref={audioRef} src="/earphones-v1/assets/music/notlikeus.mp3" loop />
 
       {/* Toggle Switch */}
       <div className="toggle-container mt-4">
