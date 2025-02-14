@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Earphone({ color, ...props }) {
-  const { nodes, materials } = useGLTF('earphones-v1/bose_qc35_wireless_headphone_high_poly.glb')
+  const { nodes, materials } = useGLTF('/earphones-v1/bose_qc35_wireless_headphone_high_poly.glb')
   
   return (
     <group scale={35} {...props} dispose={null}>
@@ -280,6 +280,6 @@ export function Earphone({ color, ...props }) {
   )
 }
 
-useGLTF.preload('/bose_qc35_wireless_headphone_high_poly.glb')
+useGLTF.preload('/earphones-v1/bose_qc35_wireless_headphone_high_poly.glb')
 
 
