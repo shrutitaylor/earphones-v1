@@ -7,9 +7,7 @@ const LandingFooter = ({sectionref}) => {
         <section className=" flex flex-col md:flex-row md:gap-6 uppercase">
         <p>Immerse Yourself in Sound. Anytime, Anywhere.</p>
         </section>
-        <section className="md:w-[15vw]">
         
-        </section>
         <Switch />
         
         </footer>

@@ -72,7 +72,7 @@ export default function Home({loaded}) {
                         
                         className="relative grid place-items-center h-[100vh]"
                     >
-                        <p className="font-pressStart text-center absolute top-[6%] mx-4 w-fit text-[9vw] leading-[9vw] font-bold">
+                        <p className="font-pressStart text-right md:text-center absolute top-[6%] mx-4 w-fit text-[9vw] leading-[9vw] font-bold">
                             BOSE<br></br> HEADPHONES
                         </p>
                         <LandingFooter />
@@ -90,9 +90,9 @@ export default function Home({loaded}) {
                         className="relative text-right flex items-center justify-start h-[100vh]"
                     >
                         <p className="w-[40%] border-0 border-red-700"></p>
-                        <p className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[60%] text-right px-4">
+                        <div className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[60%] text-right px-4">
                             <Section1 />
-                        </p>
+                        </div>
                     </motion.section>
                     <ParallaxText baseVelocity={-5}>BOSE headphones</ParallaxText>
                     {/* Section 3 */}
@@ -100,9 +100,9 @@ export default function Home({loaded}) {
                         
                         className="relative flex text-left items-center justify-oddly h-[100vh]"
                     >
-                        <p className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[60%] px-4">
+                        <div className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[60%] px-4">
                             <Section2 />
-                        </p>
+                        </div>
                         <p className="md:w-[40%] order-2"></p>
                     </motion.section>
                     
@@ -113,9 +113,9 @@ export default function Home({loaded}) {
                         className="relative flex items-center justify-oddly h-[100vh]"
                     >
                         <p className="md:w-[30%] border-0 border-red-700"></p>
-                        <p className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[70%] text-right px-4">
+                        <div className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[70%] text-right px-4">
                             <Features />
-                        </p>
+                        </div>
                     </motion.section>
                
             </main>
