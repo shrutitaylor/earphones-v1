@@ -12,6 +12,7 @@ module.exports = {
         pressStart: ['pressStart', 'sans-serif'],
         aoMono: ['aoMono', 'sans-serif'],
         spaceGro: ['Space', "sans-serif"],
+        outfit: ['outfit', "sans-serif"],
         
       },
       animation: {
@@ -21,6 +22,7 @@ module.exports = {
         'card-pop-up': 'card-pop-up 0.3s ease-in-out both',
         'carousel': 'carousel 60s linear infinite',
         'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        'fade-out' :'slide-out-fwd-center 3s ease-out both'
       },
       keyframes: {
         'pulsate-fwd': {
@@ -46,7 +48,7 @@ module.exports = {
         },
         'infinite-scroll': {
           from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(-50%)' },
         }
       },
       backgroundImage: {

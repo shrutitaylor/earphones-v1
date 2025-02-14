@@ -1,104 +1,126 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
-import ThreeDModel from "../components/ThreeDModel";
-// import { Canvas } from "@react-three/fiber"
 import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion"; // Import Framer Motion
 import EarphoneModel from "../components/3Dearphones";
 import EarphoneColorChanger from "../components/earphoneColorChange";
-import Footer from "../components/landingFooter";
 import LandingFooter from "../components/landingFooter";
 import Navbar from "../components/navbar";
+import RippleEffect from "../components/rippleEffect";
+import Section1 from "../components/section1";
+import Section2 from "../components/section2";
+import Features from "../components/features";
+import { Loader } from "@react-three/drei";
+import Pattern from "../components/backPattern";
+import Faq from "./Review";
+import ParallaxText from "../components/scrollText";
 
-gsap.registerPlugin(ScrollTrigger) ;
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() {
     const mainRef = useRef(null);
     const sceneRef = useRef(null);
-    const [progress, setProgress] = useState(0)
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-       gsap.timeline(
-        {
-            scrollTrigger:{
+        // Animation for the 3D scene
+        gsap.timeline({
+            scrollTrigger: {
                 trigger: mainRef.current,
-                start:"top top",
+                start: "top top",
                 end: "bottom bottom",
-                scrub:1,
-                onUpdate:(self) => {
-                    setProgress(self.progress)
-                }
+                scrub: 1,
+                onUpdate: (self) => {
+                    setProgress(self.progress);
+                },
+            },
+        })
+        .to(sceneRef.current, {
+            x: '-25vw',
+            y: '100vh',
+            ease: "linear"
+        })
+        .to(sceneRef.current, {
+            x: '25vw',
+            y: '200vh',
+            ease: "linear"
+        })
+        .to(sceneRef.current, {
+            x: '-25vw',
+            y: '320vh',
+            ease: "linear"
+        });
+    }, []);
 
-            }
-        }
-       ).to(sceneRef.current,{
-        x: '-25vw',
-        y:'100vh',
-        ease:"linear"
-       }).to(sceneRef.current,{
-        x: '25vw',
-        y:'200vh',
-        ease:"linear"
-       }).to(sceneRef.current,{
-        x: '-25vw',
-        y:'300vh',
-        ease:"linear"
-       })
-    },[])
     return (
         <>
-         
-         <main ref={mainRef} className=" md:overflow-x-hidden text-black">
-         <Navbar/>
-            <Suspense
-                fallback={
-                <div className="fixed inset-0 grid place-items-center bg-black ">
-                    Loading...
-                </div>
-                }
-            >
-        <section className="relative grid place-items-center h-[100vh]">
-          <p className="font-pressStart text-center absolute top-[6%] mx-4 w-fit text-[9vw] leading-[9vw] font-bold">
-           BOSE<br></br> HEADPHONES
-          </p>
-          <LandingFooter />
+        <div className="flex flex-col">
+            <Pattern />
+            <main ref={mainRef} className="overflow-hidden text-black">
+                <Navbar />
+                <Suspense fallback={
+                    <div className="bg-white flex justify-center">
+                        <Loader />
+                    </div>
+                }>
+                    {/* Section 1 */}
+                    <motion.section
+                        
+                        className="relative grid place-items-center h-[100vh]"
+                    >
+                        <p className="font-pressStart text-center absolute top-[6%] mx-4 w-fit text-[9vw] leading-[9vw] font-bold">
+                            BOSE<br></br> HEADPHONES
+                        </p>
+                        <LandingFooter />
 
-          <div ref={sceneRef} className="h-[100vh] w-[100vw]">
-            <Canvas >
-                <EarphoneModel progress={progress}/>
-            </Canvas>
-          </div>
-        </section>
+                        {/* Canvas (independent of fade effects) */}
+                        <div ref={sceneRef} className="h-[100vh] w-[100vw]">
+                            <Canvas>
+                                <EarphoneModel progress={progress} />
+                            </Canvas>
+                        </div>
+                    </motion.section>
 
-        <section className=" relative flex items-center justify-start h-[100vh]">
-          <p className="w-[50%] border-0 border-red-700"></p>
-
-          <p className=" w-[50%] text-right px-4 text-4xl font-semibold">
-            Effortlessly scroll, zoom, and navigate with the re-engineered
-            Digital Crown, now more precise than ever.
-          </p>
-        </section>
-
-        <section className=" relative flex items-center justify-oddly h-[100vh]">
-          <p className=" order-1 w-[50%] text-left px-4 text-4xl font-semibold">
-            Built for adventure, the rugged straps are as tough as you are,
-            ready for any challenge.
-          </p>
-          <p className="w-[50%] order-2"></p>
-        </section>
-
-        <section className=" relative flex items-center justify-oddly h-[100vh]">
-          <p className="w-[50%] border-0 border-red-700"></p>
-
-          <p className=" w-[50%] text-right px-4 text-4xl font-semibold">
-            The brightest display ever on an Apple Watch, so you can see it
-            clearly even under the harshest sun.
-          </p>
-        </section>
-      
-      </Suspense>
-    </main>
-    <EarphoneColorChanger />
-    
+                    {/* Section 2 */}
+                    <motion.section
+                        className="relative text-right flex items-center justify-start h-[100vh]"
+                    >
+                        <p className="w-[40%] border-0 border-red-700"></p>
+                        <p className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[60%] text-right px-4">
+                            <Section1 />
+                        </p>
+                    </motion.section>
+                    <ParallaxText baseVelocity={-5}>BOSE headphones</ParallaxText>
+                    {/* Section 3 */}
+                    <motion.section
+                        
+                        className="relative flex text-left items-center justify-oddly h-[100vh]"
+                    >
+                        <p className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[60%] px-4">
+                            <Section2 />
+                        </p>
+                        <p className="md:w-[40%] order-2"></p>
+                    </motion.section>
+                    
+                    <ParallaxText baseVelocity={5}>BOSE headphones</ParallaxText>
+                    {/* Section 4 */}
+                    <motion.section
+                        
+                        className="relative flex items-center justify-oddly h-[100vh]"
+                    >
+                        <p className="md:w-[30%] border-0 border-red-700"></p>
+                        <p className="w-full bg-opacity-50 bg-white md:bg-transparent md:m-0 md:w-[70%] text-right px-4">
+                            <Features />
+                        </p>
+                    </motion.section>
+                </Suspense>
+            </main>
+            <div>
+              <Faq />
+            </div>
+            </div>
+            {/* <EarphoneColorChanger /> */}
         </>
     );
 }

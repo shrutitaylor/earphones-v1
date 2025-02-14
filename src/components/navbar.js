@@ -1,4 +1,5 @@
 import React from "react";
+import LogoDesign from "./logodesign";
 const Navbar = () => {
     return (
         <>
@@ -7,14 +8,14 @@ const Navbar = () => {
 
         <nav class="fixed w-full z-20 top-0 start-0">
         <div class=" flex flex-wrap  justify-between p-5">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <section className="font-pressStart text-[20px] ">BOSE</section>
+            <a href="/" class="flex space-x-3 rtl:space-x-reverse">
+               <LogoDesign />
             </a>
             
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <section className="font-aoMono text-[1.2vw] h-[2.5vw] bg-black text-white p-3.5 leading-[1vw] w-[100px] rounded-lg">
+            <button className="font-aoMono text-[18px] h-[20px] xl:text-[1.2vw] xl:h-[2.5vw] bg-black text-white p-3.5 leading-[1vw] w-[100px] rounded-lg">
                             MENU
-            </section>
+            </button>
             </div>
         </div>
         </nav>
