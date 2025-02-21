@@ -1,11 +1,25 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import gsap from 'gsap';
 
 export function Earphone({ color, ...props }) {
   const { nodes, materials } = useGLTF('/earphones-v1/bose_qc35_wireless_headphone_high_poly.glb')
-  
+  const groupRef = useRef()
+
+  useEffect(() => {
+    gsap.fromTo(
+      groupRef.current.position,
+      { y: 1 }, // Start below the scene
+      { y: 0, duration: 2, ease: 'power3.out' }
+    )
+    gsap.fromTo(
+      groupRef.current.scale,
+      { x: 0, y: 1, z: 0 }, // Start from zero scale
+      { x: 35, y: 35, z: 35, duration: 2, ease: 'back.out(1.7)' }
+    )
+  }, []);
   return (
-    <group scale={35} {...props} dispose={null}>
+    <group scale={35} ref={groupRef} {...props} dispose={null}>
       <group scale={0.01}>
         <mesh
           castShadow
